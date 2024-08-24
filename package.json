@@ -17,7 +17,15 @@
     "create",
     "boilerplate"
   ],
-  "author": "Devboy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdzyaan/create-devboy-app.git"
+  },
+  "homepage": "https://github.com/mdzyaan/create-devboy-app#readme",
+  "bugs": {
+    "url": "https://github.com/mdzyaan/create-devboy-app/issues"
+  },
+  "author": "Mohammed Zyaan",
   "license": "ISC",
   "dependencies": {
     "fs-extra": "^10.0.0",
