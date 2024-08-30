@@ -26,7 +26,7 @@ async function createDevboyApp(projectName) {
       deploy: 'devboy deploy'
     },
     dependencies: {
-      "devboy": "^1.0.0"  // Add devboy as a dependency
+      "devboy-cli": "^1.0.0"  // Add devboy as a dependency
     }
   };
   await fs.writeJson(path.join(projectPath, 'package.json'), packageJson, { spaces: 2 });
