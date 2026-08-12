@@ -33,10 +33,9 @@ function resolveDevboyCliDependency(projectPath) {
 
 function resolveDevboySdkDependency(projectPath) {
   const cliPath = resolveDevboyCliPath();
-  // Published as `devboy-sdk`; alias keeps require('devboy') in apps.
-  if (cliPath) {
-    return `npm:devboy-sdk@${toFileDep(projectPath, path.join(cliPath, 'sdk'))}`;
-  }
+  // Local file: deps cannot use npm: aliases (aliases are registry-only).
+  // Registry installs alias so apps still require('devboy').
+  if (cliPath) return toFileDep(projectPath, path.join(cliPath, 'sdk'));
   return 'npm:devboy-sdk@^2.0.0';
 }
 
