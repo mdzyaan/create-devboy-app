@@ -33,8 +33,11 @@ function resolveDevboyCliDependency(projectPath) {
 
 function resolveDevboySdkDependency(projectPath) {
   const cliPath = resolveDevboyCliPath();
-  if (cliPath) return toFileDep(projectPath, path.join(cliPath, 'sdk'));
-  return '^2.0.0';
+  // Published as `devboy-sdk`; alias keeps require('devboy') in apps.
+  if (cliPath) {
+    return `npm:devboy-sdk@${toFileDep(projectPath, path.join(cliPath, 'sdk'))}`;
+  }
+  return 'npm:devboy-sdk@^2.0.0';
 }
 
 async function createDevboyApp(projectName, options = {}) {
